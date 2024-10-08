@@ -8,13 +8,13 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/api/v1")
 public class UserController {
 
     @Autowired
     private UserService userService;
 
-    @PostMapping("/createUser")
+    @PostMapping("/register")
     public ResponseEntity<UserEntity> createUser(@RequestBody UserEntity userEntity) {
         return new ResponseEntity<>(userService.createUser(userEntity), HttpStatus.OK);
     }

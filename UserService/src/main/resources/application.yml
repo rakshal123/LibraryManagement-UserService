@@ -3,13 +3,14 @@ spring:
     name: UserService
 
   datasource:
-    url: jdbc:h2:mem:testDatabase
-    username: sa
-    password: password
-    driverClassName: org.h2.Driver
+    url: jdbc:mysql://localhost:3306/User
+    username: root
+    password: root
+    driverClassName: com.mysql.cj.jdbc.Driver
   jpa:
-    database-platform: org.hibernate.dialect.H2Dialect
-
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL5Dialect
 
 server:
   port: 8080
