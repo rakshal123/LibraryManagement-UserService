@@ -1,6 +1,7 @@
 package com.libraryManager.UserService.controller;
 
-import com.libraryManager.UserService.dto.UserEntity;
+import com.libraryManager.UserService.dto.UserDto;
+import com.libraryManager.UserService.model.UserEntity;
 import com.libraryManager.UserService.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -15,7 +16,7 @@ public class UserController {
     private UserService userService;
 
     @PostMapping("/register")
-    public ResponseEntity<UserEntity> createUser(@RequestBody UserEntity userEntity) {
-        return new ResponseEntity<>(userService.createUser(userEntity), HttpStatus.OK);
+    public ResponseEntity<UserEntity> createUser(@RequestBody UserDto userDto) {
+        return new ResponseEntity<>(userService.createUser(userDto), HttpStatus.OK);
     }
 }

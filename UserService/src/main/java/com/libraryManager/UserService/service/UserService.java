@@ -1,9 +1,11 @@
 package com.libraryManager.UserService.service;
 
-import com.libraryManager.UserService.dto.UserEntity;
+import com.libraryManager.UserService.dto.UserDto;
+import com.libraryManager.UserService.model.UserEntity;
 
 
 public interface UserService {
 
-    public UserEntity createUser(UserEntity userEntity);
+    public UserEntity createUser(UserDto userDto);
+
 }
