@@ -16,6 +16,7 @@ public class UserServiceImpl implements UserService{
     public UserEntity createUser(UserDto userDto) {
 
        UserEntity user = new UserEntity();
+
        user.setUserId(user.getUserId());
        user.setUserName(userDto.getUserName());
        user.setUserEmailId(userDto.getUserEmailId());
@@ -25,6 +26,6 @@ public class UserServiceImpl implements UserService{
        user.setUserAddress(userDto.getUserAddress());
        user.setUserRegisteredDate(userDto.getUserRegisteredDate());
        user.setUserExpiredDate(userDto.getUserExpiredDate());
-        return user;
+       return userRepository.save(UserEntity.fromEntity(userDto, user));
     }
 }
