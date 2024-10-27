@@ -6,6 +6,10 @@ import com.libraryManager.UserService.repository.UserReporistory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+import java.util.Optional;
+import java.util.UUID;
+
 @Service
 public class UserServiceImpl {
 
@@ -15,5 +19,13 @@ public class UserServiceImpl {
     public UserDto createUser(UserDto userDto, User user) {
        return userReporistory.save(userDto.fromDto(user));
 
+    }
+
+    public Optional<UserDto> getUserById(UUID uuid) {
+        return userReporistory.findById(uuid);
+    }
+
+    public Optional<List<UserDto>> getAllUsers() {
+        return Optional.of(userReporistory.findAll());
     }
 }
